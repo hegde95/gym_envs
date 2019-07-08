@@ -8,15 +8,17 @@ class ReacherDoneEnv(ReacherEnv):
   metadata = {'render.modes': ['human']}
 
 #   def __init__(self):
-#     super().__init__()
+#     ...
   def step(self, action):
-    vec = self.get_body_com("fingertip")-self.get_body_com("target")
-    reward_dist = - np.linalg.norm(vec)
-    reward_ctrl = - np.square(action).sum()
-    reward = reward_dist + reward_ctrl
     self.do_simulation(action, self.frame_skip)
+    vec = self.get_body_com("fingertip")-self.get_body_com("target")
+    dist = np.linalg.norm(vec)
+    reward_dist = - dist
+    reward_ctrl = - np.square(action).sum()
+    done = dist < 0.01 # done if it's close enough
+    done_reward = 2
+    reward = reward_dist + reward_ctrl + done*done_reward
     ob = self._get_obs()
-    done = reward_dist < 0.01
     return ob, reward, done, dict(reward_dist=reward_dist, reward_ctrl=reward_ctrl)
 #   def reset(self):
 #     super().reset()

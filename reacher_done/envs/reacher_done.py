@@ -15,13 +15,17 @@ class ReacherDoneEnv(ReacherEnv):
     dist = np.linalg.norm(vec)
     reward_dist = - dist
     reward_ctrl = - np.square(action).sum()
-    done = dist < 0.01 # done if it's close enough
+    done = dist < 0.04 # done if it's close enough
     done_reward = 2
     reward = reward_dist + reward_ctrl + done*done_reward
     ob = self._get_obs()
+    # print("Dist ", dist)
+    if done:
+        print("Done!")
     return ob, reward, done, dict(reward_dist=reward_dist, reward_ctrl=reward_ctrl)
+  
 #   def reset(self):
-#     super().reset()
+    # super().reset()
 #   def render(self, mode='human'):
 #     ...
 #   def close(self):

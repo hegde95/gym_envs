@@ -14,10 +14,11 @@ class ReacherDoneEnv(ReacherEnv):
     vec = self.get_body_com("fingertip")-self.get_body_com("target")
     dist = np.linalg.norm(vec)
     reward_dist = - dist
-    reward_ctrl = - np.square(action).sum()
+    reward_ctrl = 0 # - np.square(action).sum()
+    reward_time = -0.04
     done = dist < 0.04 # done if it's close enough
     done_reward = 2
-    reward = reward_dist + reward_ctrl + done*done_reward
+    reward = reward_dist + reward_ctrl + reward_time + done*done_reward
     ob = self._get_obs()
     # print("Dist ", dist)
     if done:

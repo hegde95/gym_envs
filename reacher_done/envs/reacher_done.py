@@ -15,7 +15,7 @@ class ReacherDoneEnv(ReacherEnv):
     dist = np.linalg.norm(vec)
     reward_dist = - dist
     reward_ctrl = - 0.3 * np.square(action).sum()
-    reward_time = -0.04
+    reward_time = -0.2 # 5 times larger, to see the effect of time reward
     done = dist < 0.04 # done if it's close enough
     done_reward = 2
     reward = reward_dist + reward_ctrl + reward_time + done*done_reward

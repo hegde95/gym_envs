@@ -21,6 +21,7 @@ class FetchReacherDoneEnv(FetchReachEnv):
     done = self._is_success(obs['achieved_goal'], self.goal)
     info = {
         'is_success': done, # does not include done from TimeLimit (episode completion)
+        'dist': goal_distance(obs['achieved_goal'], self.goal)
     }
     reward = self.compute_reward(obs['achieved_goal'], self.goal, info)
     

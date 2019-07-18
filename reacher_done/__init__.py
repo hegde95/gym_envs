@@ -11,3 +11,9 @@ register(
     entry_point='reacher_done.envs:FetchReacherDoneEnv',
     max_episode_steps=100,
 )
+
+register(
+    id='fetch-pnp-done-v0',
+    entry_point='reacher_done.envs:FetchPnPDoneEnv',
+    max_episode_steps=100,
+)

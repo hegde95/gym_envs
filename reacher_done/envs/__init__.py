@@ -1,2 +1,3 @@
 from reacher_done.envs.reacher_done import ReacherDoneEnv
 from reacher_done.envs.fetch_reacher_done import FetchReacherDoneEnv
+from reacher_done.envs.fetch_pnp_done import FetchPnPDoneEnv

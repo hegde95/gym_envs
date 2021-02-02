@@ -1,4 +1,4 @@
-# Reacher done
+# Custom gym envs
 
 OpenAI gym reacher env with done flag and completion reward
 

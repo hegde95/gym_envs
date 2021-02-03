@@ -1,15 +1,17 @@
 import gym
 from gym.envs.mujoco.half_cheetah_v3 import HalfCheetahEnv
+from gym.utils.ezpickle import EzPickle
 import os
 
 
-class HalfCheetahEnv(HalfCheetahEnv):
+class HalfCheetahSoftEnv(HalfCheetahEnv, EzPickle):
 
-  # defaulting to dense reward type, everything else is the same from parent env
+  # HalfCheetah-v3 but with a different xml file
   def __init__(self):
+    EzPickle.__init__(**locals())
     curr_dir = os.path.dirname(os.path.realpath(__file__))
     xml_path = os.path.join(curr_dir, 'assets', 'half_cheetah_soft.xml')
-    super(HalfCheetahEnv, self).__init__(xml_file=xml_path)
+    super(HalfCheetahSoftEnv, self).__init__(xml_file=xml_path)
 
   # def step(self, action):
   #   action = np.clip(action, self.action_space.low, self.action_space.high)

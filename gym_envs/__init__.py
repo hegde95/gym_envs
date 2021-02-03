@@ -20,6 +20,6 @@ register(
 
 register(
     id='half-cheetah-soft-v0',
-    entry_point='gym_envs.envs:HalfCheetahEnv',
+    entry_point='gym_envs.envs:HalfCheetahSoftEnv',
     max_episode_steps=100,
 )

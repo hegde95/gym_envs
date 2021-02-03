@@ -1,7 +1,6 @@
 # Custom gym envs
 
-OpenAI gym reacher env with done flag and completion reward
-
-One env for 2D reacher (based on gym mujoco Reacher)
-
-One env for Fetch reacher (based on gym robotics FetchReach)
+* OpenAI gym reacher env with done flag and completion reward
+* Env for 2D reacher (based on gym mujoco Reacher)
+* Env for Fetch reacher (based on gym robotics FetchReach)
+* Env for Half Cheetah with soft contacts (based on gym mujoco HalfCheetahEnv)

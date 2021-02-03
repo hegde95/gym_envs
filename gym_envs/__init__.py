@@ -17,3 +17,9 @@ register(
     entry_point='gym_envs.envs:FetchPnPDoneEnv',
     max_episode_steps=100,
 )
+
+register(
+    id='half-cheetah-soft-v0',
+    entry_point='gym_envs.envs:HalfCheetahEnv',
+    max_episode_steps=100,
+)

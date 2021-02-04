@@ -9,7 +9,8 @@ class HalfCheetahSoftEnv(HalfCheetahEnv):
     def __init__(self):
         curr_dir = os.path.dirname(os.path.realpath(__file__))
         xml_path = os.path.join(curr_dir, 'assets', 'half_cheetah_soft.xml')
-        super(HalfCheetahSoftEnv, self).__init__(xml_file=xml_path)
+        super(HalfCheetahSoftEnv, self).__init__(
+            xml_file=xml_path, reset_noise_scale=0.)
 
     # gym uses Ezpickle for envs that uses C/C++ (like mujoco and atari envs)
     # These functions are for pickling and unpickling

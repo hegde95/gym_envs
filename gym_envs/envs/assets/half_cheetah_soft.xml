@@ -104,25 +104,25 @@
       <geom conaffinity="0" contype="0"  axisangle="0 1 0 .87" name="ghead" pos=".6 0 .1" rgba="0 1 0 0.3" size="0.046 .15" type="capsule"/>
       <!-- <site name='tip'  pos='.15 0 .11'/>-->
       <body name="gbthigh" pos="-.5 0 0">
-        <joint axis="0 1 0" damping="6" name="gbthigh" pos="0 0 0" range="-.52 1.05" stiffness="240" type="hinge"/>
+        <!-- <joint axis="0 1 0" damping="6" name="gbthigh" pos="0 0 0" range="-.52 1.05" stiffness="240" type="hinge"/> -->
         <geom conaffinity="0" contype="0"  axisangle="0 1 0 -3.8" name="gbthigh" pos=".1 0 -.13" rgba="0 1 0 0.3" size="0.046 .145" type="capsule"/>
         <body name="gbshin" pos=".16 0 -.25">
-          <joint axis="0 1 0" damping="4.5" name="gbshin" pos="0 0 0" range="-.785 .785" stiffness="180" type="hinge"/>
+          <!-- <joint axis="0 1 0" damping="4.5" name="gbshin" pos="0 0 0" range="-.785 .785" stiffness="180" type="hinge"/> -->
           <geom conaffinity="0" contype="0" axisangle="0 1 0 -2.03" name="gbshin" pos="-.14 0 -.07" rgba="0 1 0 0.3" size="0.046 .15" type="capsule"/>
           <body name="gbfoot" pos="-.28 0 -.14">
-            <joint axis="0 1 0" damping="3" name="gbfoot" pos="0 0 0" range="-.4 .785" stiffness="120" type="hinge"/>
+            <!-- <joint axis="0 1 0" damping="3" name="gbfoot" pos="0 0 0" range="-.4 .785" stiffness="120" type="hinge"/> -->
             <geom conaffinity="0" contype="0" axisangle="0 1 0 -.27" name="gbfoot" pos=".03 0 -.097" rgba="0 1 0 0.3" size="0.046 .094" type="capsule"/>
           </body>
         </body>
       </body>
       <body name="gfthigh" pos=".5 0 0">
-        <joint axis="0 1 0" damping="4.5" name="gfthigh" pos="0 0 0" range="-1 .7" stiffness="180" type="hinge"/>
+        <!-- <joint axis="0 1 0" damping="4.5" name="gfthigh" pos="0 0 0" range="-1 .7" stiffness="180" type="hinge"/> -->
         <geom conaffinity="0" contype="0" axisangle="0 1 0 .52" name="gfthigh" pos="-.07 0 -.12" rgba="0 1 0 0.3" size="0.046 .133" type="capsule"/>
         <body name="gfshin" pos="-.14 0 -.24">
-          <joint axis="0 1 0" damping="3" name="gfshin" pos="0 0 0" range="-1.2 .87" stiffness="120" type="hinge"/>
+          <!-- <joint axis="0 1 0" damping="3" name="gfshin" pos="0 0 0" range="-1.2 .87" stiffness="120" type="hinge"/> -->
           <geom conaffinity="0" contype="0" axisangle="0 1 0 -.6" name="gfshin" pos=".065 0 -.09" rgba="0 1 0 0.3" size="0.046 .106" type="capsule"/>
           <body name="gffoot" pos=".13 0 -.18">
-            <joint axis="0 1 0" damping="1.5" name="gffoot" pos="0 0 0" range="-.5 .5" stiffness="60" type="hinge"/>
+            <!-- <joint axis="0 1 0" damping="1.5" name="gffoot" pos="0 0 0" range="-.5 .5" stiffness="60" type="hinge"/> -->
             <geom conaffinity="0" contype="0" axisangle="0 1 0 -.6" name="gffoot" pos=".045 0 -.07" rgba="0 1 0 0.3" size="0.046 .07" type="capsule"/>
           </body>
         </body>

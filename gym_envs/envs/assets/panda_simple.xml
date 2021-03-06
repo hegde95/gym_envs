@@ -1,0 +1,17 @@
+<mujoco model="franka_panda v200">
+<!-- =================================================
+    Model   :: Franka (MuJoCoV2.0)
+    Original:: See https://github.com/vikashplus/franka_sim
+====================================================== -->
+
+    <include file="panda/basic_scene.xml"/>
+    <include file="panda/assets.xml"/>
+    <compiler meshdir=""/>
+
+    <worldbody>
+        <include file="panda/chain0.xml"/>
+    </worldbody>
+
+    <include file="panda/actuator0.xml"/>
+
+</mujoco>

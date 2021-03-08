@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mujoco model="franka_reacher">
   <compiler meshdir=""/>
-	<option noslip_iterations="3">
+	<option noslip_iterations="5">
   <!-- mujoco modeling doc: When contact slip is a problem, the best way to suppress 
   it is to use elliptic cones, large impratio, and the Newton algorithm 
   with very small tolerance. If that is not sufficient, enable the Noslip solver -->

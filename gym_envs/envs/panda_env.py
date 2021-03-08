@@ -1,6 +1,7 @@
 import numpy as np
 from gym.envs.robotics import rotations, robot_env, utils
 import mujoco_py
+import os
 
 
 def goal_distance(goal_a, goal_b):
@@ -13,8 +14,8 @@ class PandaEnv(robot_env.RobotEnv):
   """
 
   def __init__(
-    self, model_path, n_substeps, block_gripper,
-    has_object, target_offset, target_range,
+    self, model_path:str, n_substeps:int, block_gripper:bool,
+    has_object:bool, target_offset, target_range,
     distance_threshold, initial_qpos, reward_type,
   ):
     """Initializes a new Panda environment with the default gripper.
@@ -37,8 +38,16 @@ class PandaEnv(robot_env.RobotEnv):
     self.reward_type = reward_type
     self.obj_range = 0 # no randomness in object position on reset
 
+    if model_path is None:
+      curr_dir = os.path.dirname(os.path.realpath(__file__))
+      self._model_path = os.path.join(curr_dir, 'assets', 'panda_simple.xml')
+    else:
+      self._model_path = model_path
+
     super(PandaEnv, self).__init__(
-      model_path=model_path, n_substeps=n_substeps, n_actions=8, # 7 dof arm + 1 dof for both gripper fingers
+      model_path=self._model_path,
+      n_substeps=n_substeps,
+      n_actions=8, # 7 dof arm + 1 dof for both gripper fingers
       initial_qpos=initial_qpos)
 
   # GoalEnv methods
@@ -105,6 +114,9 @@ class PandaEnv(robot_env.RobotEnv):
       'achieved_goal': achieved_goal.copy(),
       'desired_goal': self.goal.copy(),
     }
+
+  def get_ee_pos(self):
+    return self.sim.data.get_site_xpos('panda0_end_effector')
 
   def _viewer_setup(self):
     body_id = self.sim.model.body_name2id('panda0_link7')

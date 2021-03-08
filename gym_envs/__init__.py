@@ -29,3 +29,9 @@ register(
     entry_point='gym_envs.envs:PandaReachEnv',
     max_episode_steps=1000,
 )
+
+register(
+    id='panda-pnp-v0',
+    entry_point='gym_envs.envs:PandaPickPlaceEnv',
+    max_episode_steps=1000,
+)

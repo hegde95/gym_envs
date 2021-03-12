@@ -9,7 +9,7 @@ import os
 # Humanoid with custom xml file
 # TODO: See if DMControl's humanoid has useful functions?
 # Qpos & Qvel are [torso, abdomen_y, right leg, left leg]
-# torso qpos = x, y, z, quat (wxyz). 
+# torso qpos = x, y, z, quat (wxyz).
 # torso qvel = v_x, v_y, v_z, omega_x, omega_y, omega_z
 # right leg (qpos and qvel) = hip (x, z, y), knee, ankle (y, x)
 # left leg  (qpos and qvel) = hip (x, z, y), knee, ankle (y, x)
@@ -42,4 +42,14 @@ class HumanoidSoftEnv(HumanoidEnv):
   def step(self, action):
     # parent env doesn't clip actions!
     action = np.clip(action, self.action_space.low, self.action_space.high)
-    return super(HumanoidSoftEnv, self).step(action=action)
+    observation, reward, done, info = super(HumanoidSoftEnv, self).step(action=action)
+    done = False # HACK: we don't use this param
+    return observation, reward, done, info
+
+  # TODO: these start and end incides are fixed. just store these in a dict?
+  def get_sensor_value(self, sensor_name:str):
+    sens_id = self.sim.model.sensor_name2id(sensor_name)
+    sens_dims = self.sim.model.sensor_dim[sens_id]
+    sens_start_idx = np.sum(self.sim.model.sensor_dim[0:sens_id]) - 1 # 0-indexed
+    sens_end_idx = sens_start_idx + sens_dims
+    return self.sim.data.sensordata[sens_start_idx:sens_end_idx]

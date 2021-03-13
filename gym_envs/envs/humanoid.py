@@ -41,7 +41,7 @@ class HumanoidSoftEnv(HumanoidEnv):
 
   def step(self, action):
     # parent env doesn't clip actions!
-    action = np.clip(action, self.action_space.low, self.action_space.high)
+    # action = np.clip(action, self.action_space.low, self.action_space.high)
     observation, reward, done, info = super(HumanoidSoftEnv, self).step(action=action)
     done = False # HACK: we don't use this param
     return observation, reward, done, info

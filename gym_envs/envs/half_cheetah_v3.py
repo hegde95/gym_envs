@@ -20,7 +20,7 @@ class HalfCheetahSoftEnv(HalfCheetahEnv):
   # These functions are for pickling and unpickling
   # To allow you to use deepcopy()
   def __getstate__(self):
-    return {"_xml_path": self._xml_path}
+    return {"_xml_path": [self._xml_path]}
 
   def __setstate__(self, d):
     # out = type(self)()  # call constructor with no other arguments

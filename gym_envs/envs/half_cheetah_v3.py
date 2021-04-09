@@ -1,28 +1,30 @@
 import gym
 from gym.envs.mujoco.half_cheetah_v3 import HalfCheetahEnv
+from gym.envs.mujoco.mujoco_env import MujocoEnv
+from gym.utils import EzPickle
 import os
 
-# HalfCheetah-v3 but with a different xml file
 class HalfCheetahSoftEnv(HalfCheetahEnv):
+  """HalfCheetah-v3 but with options for a different xml file and frame_skip"""
   _xml_path:str
 
-  def __init__(self, xml_path = None):
+  def __init__(self, 
+              xml_path = None,
+              frame_skip = 5,
+              forward_reward_weight=1.0,
+              ctrl_cost_weight=0.1,
+              reset_noise_scale=0.1,
+              exclude_current_positions_from_observation=True):
+    # Completely replacing parent init function, it doesn't let us choose frame_skip
+    EzPickle.__init__(**locals())
+    self._forward_reward_weight = forward_reward_weight
+    self._ctrl_cost_weight = ctrl_cost_weight
+    self._reset_noise_scale = reset_noise_scale
+    self._exclude_current_positions_from_observation = (exclude_current_positions_from_observation)
+
     if xml_path is None:
       curr_dir = os.path.dirname(os.path.realpath(__file__))
       self._xml_path = os.path.join(curr_dir, 'assets', 'half_cheetah_soft.xml')
     else:
       self._xml_path = xml_path
-
-    super(HalfCheetahSoftEnv, self).__init__(
-      xml_file=self._xml_path, reset_noise_scale=0.)
-
-  # gym uses Ezpickle for envs that uses C/C++ (like mujoco and atari envs)
-  # These functions are for pickling and unpickling
-  # To allow you to use deepcopy()
-  def __getstate__(self):
-    return {"_xml_path": [self._xml_path]}
-
-  def __setstate__(self, d):
-    # out = type(self)()  # call constructor with no other arguments
-    out = type(self)(*d["_xml_path"])
-    self.__dict__.update(out.__dict__)
+    MujocoEnv.__init__(self, self._xml_path, frame_skip=frame_skip)

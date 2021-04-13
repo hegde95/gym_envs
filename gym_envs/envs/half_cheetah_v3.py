@@ -13,7 +13,7 @@ class HalfCheetahSoftEnv(HalfCheetahEnv):
               frame_skip = 5,
               forward_reward_weight=1.0,
               ctrl_cost_weight=0.1,
-              reset_noise_scale=0.1,
+              reset_noise_scale=0.,
               exclude_current_positions_from_observation=True):
     # Completely replacing parent init function, it doesn't let us choose frame_skip
     EzPickle.__init__(**locals())

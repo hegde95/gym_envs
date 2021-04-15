@@ -48,7 +48,8 @@
   <compiler angle="radian" coordinate="local" inertiafromgeom="true" settotalmass="14"/>
   <default>
     <joint armature=".1" damping=".01" limited="true" solimplimit="0 .8 .03" solreflimit=".02 1" stiffness="8"/>
-    <geom conaffinity="0" condim="3" contype="1" friction=".4 .1 .1" rgba="0.8 0.6 .4 1" solimp="0.0 1 0.01" solref="-100 -10"/>
+    <!-- <geom conaffinity="0" condim="3" contype="1" friction=".4 .1 .1" rgba="0.8 0.6 .4 1" solimp="0.0 1 0.01" solref="-100 -10"/> -->
+    <geom conaffinity="0" condim="3" contype="1" friction=".4 .1 .1" rgba="0.8 0.6 .4 1" solimp="0.0 0.8 0.01" solref="0.02 1"/>
     <motor ctrllimited="true" ctrlrange="-1 1"/>
   </default>
   <size nstack="300000" nuser_geom="1"/>
@@ -133,10 +134,10 @@
         </body>
       </body>
     </body>
-    <!-- <body pos="1.5 0 0.1" name="step0">
-      <geom size=".2 0.2 0.1" type="box" mass="2000" conaffinity="1" contype="1">
+    <body pos="1.5 0 0." name="step0">
+      <geom pos="0 0 -0.5" size=".2 0.2 0.5" type="box" mass="2000" conaffinity="1" contype="1">
       </geom>
-    </body> -->
+    </body>
   </worldbody>
   <actuator>
     <motor gear="120" joint="bthigh" name="bthigh"/>

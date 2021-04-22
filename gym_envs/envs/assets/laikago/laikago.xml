@@ -1,12 +1,13 @@
 <!-- Converted from the laikago files in pybullet -->
-<mujoco model="plane">
+<mujoco model="laikago">
   <compiler angle="radian" />
   <size njmax="500" nconmax="100" />
   <default class="main">
     <geom conaffinity="0" contype="1"/>
-</default>
+    <motor ctrllimited="true" ctrlrange="-1 1"/>
+  </default>
   <asset>
-    <mesh name="chassis" file="chassis.stl" />
+    <mesh name="torso" file="chassis.stl" />
     <mesh name="hipR" file="hipR.stl" />
     <mesh name="thighR" file="thighR.stl" />
     <mesh name="calf" file="calf.stl" />
@@ -21,10 +22,10 @@
   <worldbody>
     <geom conaffinity="1" material="MatPlane" name="floor" rgba="0.8 0.8 0.8 1" size="40 40 40" type="plane"/>
     <light directional="false" diffuse=".2 .2 .2" specular="0 0 0" pos="0 0 5" dir="0 0 -1" castshadow="false"/>
-    <light mode="targetbodycom" target="chassis" directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="0 0 4.0" dir="0 0 -1"/>
-    <body name="chassis" pos="0 0 0.45" quat="0.5 0.5 0.5 0.5">
+    <light mode="targetbodycom" target="torso" directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="0 0 4.0" dir="0 0 -1"/>
+    <body name="torso" pos="0 0 0.45" quat="0.5 0.5 0.5 0.5">
       <freejoint name="root"/>
-      <geom pos="0 0 0.043794" quat="0.707388 -0.706825 0 0" type="mesh" rgba="1 1 1 1" mesh="chassis"/>
+      <geom pos="0 0 0.043794" quat="0.707388 -0.706825 0 0" type="mesh" rgba="1 1 1 1" mesh="torso"/>
       <body name="FR_hip_motor" pos="-0.0817145 0 0.242889">
         <inertial pos="0.02 0 0" quat="0.629953 0.350191 0.35823 0.593462" mass="1.095" diaginertia="0.000983491 0.000885646 0.000800926" />
         <joint name="FR_hipY" limited="true" range="-0.385 0.385" stiffness="100" damping="10" pos="0 0 0" axis="0 0 -1"/>
@@ -82,6 +83,47 @@
             <inertial pos="0 -0.16 -0.02" quat="0.712765 0.000467477 -0.000119366 0.701402" mass="0.241" diaginertia="0.00619655 0.00618196 3.47683e-05" />
             <joint name="RL_knee" springref="-0.7"  limited="true" range="-1.57 0.8" stiffness="100" damping="10" pos="0 0 0" axis="1 0 0" />
             <geom quat="0.707109 0 0.707105 0" type="mesh" rgba="1 1 1 1" mesh="calf"/>
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <!-- Goal body -->
+    <body name="gtorso" pos="1 0 0.45" quat="0.5 0.5 0.5 0.5">
+      <geom pos="0 0 0.043794" quat="0.707388 -0.706825 0 0" type="mesh" rgba="0 1 0 0.3" contype="0" mesh="torso"/>
+      <body name="gFR_hip_motor" pos="-0.0817145 0 0.242889">
+        <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="hipR"/>
+        <body name="gFR_thigh" pos="-0.053565 0 0">
+          <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="thighR"/>
+          <body name="gFR_calf" pos="0.02069 -0.20833 -0.1422">
+            <geom quat="0.707109 0 0.707105 0" type="mesh" rgba="0 1 0 0.3" contype="0" mesh="calf"/>
+          </body>
+        </body>
+      </body>
+      <body name="gFL_hip" pos="0.0817145 0 0.242889">
+        <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="hipL"/>
+        <body name="gFL_thigh" pos="0.055855 0 0">
+          <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="thighL"/>
+          <body name="gFL_calf" pos="-0.02069 -0.20833 -0.1422">
+            <geom quat="0.707109 0 0.707105 0" type="mesh" rgba="0 1 0 0.3" contype="0" mesh="calf"/>
+          </body>
+        </body>
+      </body>
+      <body name="gRR_hip" pos="-0.0817145 0 -0.194401">
+        <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="hipR"/>
+        <body name="gRR_thigh" pos="-0.053565 0 0">
+          <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="thighR"/>
+          <body name="gRR_calf" pos="0.02069 -0.20833 -0.1422">
+            <geom quat="0.707109 0 0.707105 0" type="mesh" rgba="0 1 0 0.3" contype="0" mesh="calf"/>
+          </body>
+        </body>
+      </body>
+      <body name="gRL_hip" pos="0.0817145 0 -0.194401">
+        <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="hipL"/>
+        <body name="gRL_thigh" pos="0.055855 0 0">
+          <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="thighL"/>
+          <body name="gRL_calf" pos="-0.02069 -0.20833 -0.1422">
+            <geom quat="0.707109 0 0.707105 0" type="mesh" rgba="0 1 0 0.3" contype="0" mesh="calf"/>
           </body>
         </body>
       </body>

@@ -1,0 +1,101 @@
+<mujoco model="plane">
+  <compiler angle="radian" />
+  <size njmax="500" nconmax="100" />
+  <asset>
+    <mesh name="chassis_vhacd_mod" file="chassis_vhacd_mod.stl" />
+    <mesh name="hip_motor_mirror" file="hip_motor_mirror.stl" />
+    <mesh name="upper_leg_right_vhacd" file="upper_leg_right_vhacd.stl" />
+    <mesh name="lower_leg_3_collision" file="lower_leg_3_collision.stl" />
+    <mesh name="hip_motor" file="hip_motor.stl" />
+    <mesh name="upper_leg_left_vhacd" file="upper_leg_left_vhacd.stl" />
+    <texture builtin="gradient" height="600" rgb1="1 1 1" rgb2="0 0 0" type="skybox" width="100"/>
+    <texture builtin="flat" height="762" mark="cross" markrgb="1 1 1" name="texgeom" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" type="cube" width="127"/>
+    <texture name="texplane" builtin="checker" type="2d" rgb1="1 1 1" rgb2="0.2 0.2 0.8" width="100" height="100"/>
+    <material name="MatPlane" shininess="1" specular="1" texrepeat="60 60" texture="texplane"/>
+    <material name="geom" texture="texgeom" texuniform="true"/>
+  </asset>
+  <worldbody>
+    <geom conaffinity="1" material="MatPlane" name="floor" rgba="0.8 0.8 0.8 1" size="40 40 40" type="plane"/>
+    <light directional="false" diffuse=".2 .2 .2" specular="0 0 0" pos="0 0 5" dir="0 0 -1" castshadow="false"/>
+    <light mode="targetbodycom" target="chassis" directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="0 0 4.0" dir="0 0 -1"/>
+    <body name="chassis" pos="0 0 0.49" quat="0 0 0.707388 0.707388">
+      <freejoint name="root"/>
+      <geom pos="0 0 0.043794" quat="0.707388 -0.706825 0 0" type="mesh" rgba="1 1 1 1" mesh="chassis_vhacd_mod"/>
+      <body name="FR_hip_motor" pos="-0.0817145 0 0.242889">
+      <!-- <body name="FR_hip_motor" pos="-0.11935 0 0.24"> -->
+        <inertial pos="0.02 0 0" quat="0.629953 0.350191 0.35823 0.593462" mass="1.095" diaginertia="0.000983491 0.000885646 0.000800926" />
+        <joint name="FR_hip_motor_2_chassis_joint" pos="0 0 0" axis="0 0 -1"  limited="true" range="-0.385 0.385"/>
+        <geom type="mesh" rgba="1 1 1 1" mesh="hip_motor_mirror"/>
+        <body name="FR_upper_leg" pos="-0.053565 0 0">
+          <inertial pos="0 -0.04 -0.04" quat="0.629953 0.350191 0.35823 0.593462" mass="1.527" diaginertia="0.000983491 0.000885646 0.000800926" />
+          <joint name="FR_upper_leg_2_hip_motor_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-0.7 0.7"/>
+          <geom type="mesh" rgba="1 1 1 1" mesh="upper_leg_right_vhacd"/>
+          <body name="FR_lower_leg" pos="0.02069 -0.20833 -0.1422">
+            <inertial pos="0 -0.16 -0.02" quat="0.712765 0.000467477 -0.000119366 0.701402" mass="0.241" diaginertia="0.00619655 0.00618196 3.47683e-05" />
+            <joint name="FR_lower_leg_2_upper_leg_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 0"/>
+            <geom quat="0.707109 0 0.707105 0" type="mesh" rgba="1 1 1 1" mesh="lower_leg_3_collision"/>
+          </body>
+        </body>
+      </body>
+      <body name="FL_hip_motor" pos="0.0817145 0 0.242889">
+        <inertial pos="-0.02 0 0" quat="0.629953 0.350191 0.35823 0.593462" mass="1.095" diaginertia="0.000983491 0.000885646 0.000800926" />
+        <joint name="FL_hip_motor_2_chassis_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-0.385 0.385"/>
+        <geom type="mesh" rgba="1 1 1 1" mesh="hip_motor"/>
+        <body name="FL_upper_leg" pos="0.055855 0 0">
+          <inertial pos="0 -0.04 -0.04" quat="0.629953 0.350191 0.35823 0.593462" mass="1.527" diaginertia="0.000983491 0.000885646 0.000800926" />
+          <joint name="FL_upper_leg_2_hip_motor_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-0.7 0.7"/>
+          <geom type="mesh" rgba="1 1 1 1" mesh="upper_leg_left_vhacd"/>
+          <body name="FL_lower_leg" pos="-0.02069 -0.20833 -0.1422">
+            <inertial pos="0 -0.16 -0.02" quat="0.712765 0.000467477 -0.000119366 0.701402" mass="0.241" diaginertia="0.00619655 0.00618196 3.47683e-05" />
+            <joint name="FL_lower_leg_2_upper_leg_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 0" />
+            <geom quat="0.707109 0 0.707105 0" type="mesh" rgba="1 1 1 1" mesh="lower_leg_3_collision"/>
+          </body>
+        </body>
+      </body>
+      <body name="RR_hip_motor" pos="-0.0817145 0 -0.194401">
+        <inertial pos="0.02 0 0" quat="0.629953 0.350191 0.35823 0.593462" mass="1.095" diaginertia="0.000983491 0.000885646 0.000800926" />
+        <joint name="RR_hip_motor_2_chassis_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="-0.385 0.385"/>
+        <geom type="mesh" rgba="1 1 1 1" mesh="hip_motor_mirror"/>
+        <body name="RR_upper_leg" pos="-0.053565 0 0">
+          <inertial pos="0 -0.04 -0.04" quat="0.629953 0.350191 0.35823 0.593462" mass="1.527" diaginertia="0.000983491 0.000885646 0.000800926" />
+          <joint name="RR_upper_leg_2_hip_motor_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-0.7 0.7"/>
+          <geom type="mesh" rgba="1 1 1 1" mesh="upper_leg_right_vhacd"/>
+          <body name="RR_lower_leg" pos="0.02069 -0.20833 -0.1422">
+            <inertial pos="0 -0.16 -0.02" quat="0.712765 0.000467477 -0.000119366 0.701402" mass="0.241" diaginertia="0.00619655 0.00618196 3.47683e-05" />
+            <joint name="RR_lower_leg_2_upper_leg_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 0"/>
+            <geom quat="0.707109 0 0.707105 0" type="mesh" rgba="1 1 1 1" mesh="lower_leg_3_collision"/>
+          </body>
+        </body>
+      </body>
+      <body name="RL_hip_motor" pos="0.0817145 0 -0.194401">
+        <inertial pos="-0.02 0 0" quat="0.629953 0.350191 0.35823 0.593462" mass="1.095" diaginertia="0.000983491 0.000885646 0.000800926" />
+        <joint name="RL_hip_motor_2_chassis_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-0.385 0.385"/>
+        <geom type="mesh" rgba="1 1 1 1" mesh="hip_motor"/>
+        <body name="RL_upper_leg" pos="0.055855 0 0">
+          <inertial pos="0 -0.04 -0.04" quat="0.629953 0.350191 0.35823 0.593462" mass="1.527" diaginertia="0.000983491 0.000885646 0.000800926" />
+          <joint name="RL_upper_leg_2_hip_motor_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-0.7 0.7"/>
+          <geom type="mesh" rgba="1 1 1 1" mesh="upper_leg_left_vhacd"/>
+          <body name="RL_lower_leg" pos="-0.02069 -0.20833 -0.1422">
+            <inertial pos="0 -0.16 -0.02" quat="0.712765 0.000467477 -0.000119366 0.701402" mass="0.241" diaginertia="0.00619655 0.00618196 3.47683e-05" />
+            <joint name="RL_lower_leg_2_upper_leg_joint" pos="0 0 0" axis="1 0 0"  limited="true" range="-1.57 0"/>
+            <geom quat="0.707109 0 0.707105 0" type="mesh" rgba="1 1 1 1" mesh="lower_leg_3_collision"/>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="FR_hip_motor_2_chassis_joint"  gear="12" joint="FR_hip_motor_2_chassis_joint"/>
+    <motor name="FR_upper_leg_2_hip_motor_joint"  gear="12" joint="FR_upper_leg_2_hip_motor_joint"/>
+    <motor name="FR_lower_leg_2_upper_leg_joint"  gear="12" joint="FR_lower_leg_2_upper_leg_joint"/>
+    <motor name="FL_hip_motor_2_chassis_joint"  gear="12" joint="FL_hip_motor_2_chassis_joint"/>
+    <motor name="FL_upper_leg_2_hip_motor_joint"  gear="12" joint="FL_upper_leg_2_hip_motor_joint"/>
+    <motor name="FL_lower_leg_2_upper_leg_joint"  gear="12" joint="FL_lower_leg_2_upper_leg_joint"/>
+    <motor name="RR_hip_motor_2_chassis_joint"  gear="12" joint="RR_hip_motor_2_chassis_joint"/>
+    <motor name="RR_upper_leg_2_hip_motor_joint"  gear="12" joint="RR_upper_leg_2_hip_motor_joint"/>
+    <motor name="RR_lower_leg_2_upper_leg_joint"  gear="12" joint="RR_lower_leg_2_upper_leg_joint"/>
+    <motor name="RL_hip_motor_2_chassis_joint"  gear="12" joint="RL_hip_motor_2_chassis_joint"/>
+    <motor name="RL_upper_leg_2_hip_motor_joint"  gear="12" joint="RL_upper_leg_2_hip_motor_joint"/>
+    <motor name="RL_lower_leg_2_upper_leg_joint"  gear="12" joint="RL_lower_leg_2_upper_leg_joint"/>
+</actuator>
+</mujoco>

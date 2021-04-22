@@ -41,3 +41,9 @@ register(
     entry_point='gym_envs.envs:HumanoidSoftEnv',
     max_episode_steps=1000,
 )
+
+register(
+    id='laikago-v0',
+    entry_point='gym_envs.envs:LaikagoEnv',
+    max_episode_steps=1000,
+)

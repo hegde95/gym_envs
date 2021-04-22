@@ -27,11 +27,11 @@
       <geom pos="0 0 0.043794" quat="0.707388 -0.706825 0 0" type="mesh" rgba="1 1 1 1" mesh="chassis"/>
       <body name="FR_hip_motor" pos="-0.0817145 0 0.242889">
         <inertial pos="0.02 0 0" quat="0.629953 0.350191 0.35823 0.593462" mass="1.095" diaginertia="0.000983491 0.000885646 0.000800926" />
-        <joint name="FR_hipY" springref="0" limited="true" range="-0.385 0.385" stiffness="100" damping="10" pos="0 0 0" axis="0 0 -1"/>
+        <joint name="FR_hipY" limited="true" range="-0.385 0.385" stiffness="100" damping="10" pos="0 0 0" axis="0 0 -1"/>
         <geom type="mesh" rgba="1 1 1 1" mesh="hipR"/>
         <body name="FR_thigh" pos="-0.053565 0 0">
           <inertial pos="0 -0.04 -0.04" quat="0.629953 0.350191 0.35823 0.593462" mass="1.527" diaginertia="0.000983491 0.000885646 0.000800926" />
-          <joint name="FR_hipX" springref="0" limited="true" range="-1.2 0.7" stiffness="100" damping="10" pos="0 0 0" axis="1 0 0" />
+          <joint name="FR_hipX" limited="true" range="-1.2 0.7" stiffness="100" damping="10" pos="0 0 0" axis="1 0 0" />
           <geom type="mesh" rgba="1 1 1 1" mesh="thighR"/>
           <body name="FR_calf" pos="0.02069 -0.20833 -0.1422">
             <inertial pos="0 -0.16 -0.02" quat="0.712765 0.000467477 -0.000119366 0.701402" mass="0.241" diaginertia="0.00619655 0.00618196 3.47683e-05" />
@@ -42,11 +42,11 @@
       </body>
       <body name="FL_hip" pos="0.0817145 0 0.242889">
         <inertial pos="-0.02 0 0" quat="0.629953 0.350191 0.35823 0.593462" mass="1.095" diaginertia="0.000983491 0.000885646 0.000800926" />
-        <joint name="FL_hipY" springref="0" limited="true" range="-0.385 0.385" stiffness="100" damping="10" pos="0 0 0" axis="0 0 1" />
+        <joint name="FL_hipY" limited="true" range="-0.385 0.385" stiffness="100" damping="10" pos="0 0 0" axis="0 0 1" />
         <geom type="mesh" rgba="1 1 1 1" mesh="hipL"/>
         <body name="FL_thigh" pos="0.055855 0 0">
           <inertial pos="0 -0.04 -0.04" quat="0.629953 0.350191 0.35823 0.593462" mass="1.527" diaginertia="0.000983491 0.000885646 0.000800926" />
-          <joint name="FL_hipX" springref="0" limited="true" range="-1.2 0.7" stiffness="100" damping="10" pos="0 0 0" axis="1 0 0" />
+          <joint name="FL_hipX" limited="true" range="-1.2 0.7" stiffness="100" damping="10" pos="0 0 0" axis="1 0 0" />
           <geom type="mesh" rgba="1 1 1 1" mesh="thighL"/>
           <body name="FL_calf" pos="-0.02069 -0.20833 -0.1422">
             <inertial pos="0 -0.16 -0.02" quat="0.712765 0.000467477 -0.000119366 0.701402" mass="0.241" diaginertia="0.00619655 0.00618196 3.47683e-05" />
@@ -57,11 +57,11 @@
       </body>
       <body name="RR_hip" pos="-0.0817145 0 -0.194401">
         <inertial pos="0.02 0 0" quat="0.629953 0.350191 0.35823 0.593462" mass="1.095" diaginertia="0.000983491 0.000885646 0.000800926" />
-        <joint name="RR_hipY"  springref="0" limited="true" range="-0.385 0.385" stiffness="100" damping="10" pos="0 0 0" axis="0 0 -1"/>
+        <joint name="RR_hipY" limited="true" range="-0.385 0.385" stiffness="100" damping="10" pos="0 0 0" axis="0 0 -1"/>
         <geom type="mesh" rgba="1 1 1 1" mesh="hipR"/>
         <body name="RR_thigh" pos="-0.053565 0 0">
           <inertial pos="0 -0.04 -0.04" quat="0.629953 0.350191 0.35823 0.593462" mass="1.527" diaginertia="0.000983491 0.000885646 0.000800926" />
-          <joint name="RR_hipX" springref="0" limited="true" range="-0.7 0.7" stiffness="100" damping="10" pos="0 0 0" axis="1 0 0" />
+          <joint name="RR_hipX" limited="true" range="-0.7 0.7" stiffness="100" damping="10" pos="0 0 0" axis="1 0 0" />
           <geom type="mesh" rgba="1 1 1 1" mesh="thighR"/>
           <body name="RR_calf" pos="0.02069 -0.20833 -0.1422">
             <inertial pos="0 -0.16 -0.02" quat="0.712765 0.000467477 -0.000119366 0.701402" mass="0.241" diaginertia="0.00619655 0.00618196 3.47683e-05" />
@@ -72,11 +72,11 @@
       </body>
       <body name="RL_hip" pos="0.0817145 0 -0.194401">
         <inertial pos="-0.02 0 0" quat="0.629953 0.350191 0.35823 0.593462" mass="1.095" diaginertia="0.000983491 0.000885646 0.000800926" />
-        <joint name="RL_hipY" springref="0" limited="true" range="-0.385 0.385" stiffness="100" damping="10" pos="0 0 0" axis="0 0 1" />
+        <joint name="RL_hipY" limited="true" range="-0.385 0.385" stiffness="100" damping="10" pos="0 0 0" axis="0 0 1" />
         <geom type="mesh" rgba="1 1 1 1" mesh="hipL"/>
         <body name="RL_thigh" pos="0.055855 0 0">
           <inertial pos="0 -0.04 -0.04" quat="0.629953 0.350191 0.35823 0.593462" mass="1.527" diaginertia="0.000983491 0.000885646 0.000800926" />
-          <joint name="RL_hipX" springref="0" limited="true" range="-0.7 0.7" stiffness="100" damping="10" pos="0 0 0" axis="1 0 0" />
+          <joint name="RL_hipX" limited="true" range="-0.7 0.7" stiffness="100" damping="10" pos="0 0 0" axis="1 0 0" />
           <geom type="mesh" rgba="1 1 1 1" mesh="thighL"/>
           <body name="RL_calf" pos="-0.02069 -0.20833 -0.1422">
             <inertial pos="0 -0.16 -0.02" quat="0.712765 0.000467477 -0.000119366 0.701402" mass="0.241" diaginertia="0.00619655 0.00618196 3.47683e-05" />
@@ -102,6 +102,7 @@
     <motor name="RL_knee"  gear="12" joint="RL_knee"/>
 </actuator>
 <keyframe>
-  <key qpos='0 0 0.45 0.5 0.5 0.5 0.5 0 0 -0.70495 0 0 -0.70495 0 0 -0.70495 0 0 -0.70495'/>
+  <!-- Stable standing position, used when we initialize & reset the gym env -->
+  <key qpos='0 0 0.44 0.5 0.5 0.5 0.5 0 0 -0.7 0 0 -0.7 0 0 -0.7 0 0 -0.7'/>
 </keyframe>
 </mujoco>

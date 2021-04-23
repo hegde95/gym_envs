@@ -1,13 +1,13 @@
 <!-- Converted from the laikago files in pybullet -->
 <mujoco model="laikago">
   <compiler angle="radian" />
-  <option timestep="0.004">
+  <option timestep="0.01">
     <!-- Disable if your dynamics computations are random states. Enable if your dynamics computations will form a full trajectory-->
     <!-- <flag warmstart="disable"/> -->
   </option>
   <size nconmax="100" njmax="500" nkey="1"/>
   <default class="main">
-    <geom conaffinity="0" contype="1"/>
+    <geom conaffinity="0" contype="1"/> <!-- default friction, solref, solimp -->
     <motor ctrllimited="true" ctrlrange="-1 1"/>
   </default>
   <asset>
@@ -134,18 +134,18 @@
     </body>
   </worldbody>
   <actuator>
-    <motor name="FR_hipY"  gear="12" joint="FR_hipY"/>
-    <motor name="FR_hipX"  gear="12" joint="FR_hipX"/>
-    <motor name="FR_knee"  gear="12" joint="FR_knee"/>
-    <motor name="FL_hipY"  gear="12" joint="FL_hipY"/>
-    <motor name="FL_hipX"  gear="12" joint="FL_hipX"/>
-    <motor name="FL_knee"  gear="12" joint="FL_knee"/>
-    <motor name="RR_hipY"  gear="12" joint="RR_hipY"/>
-    <motor name="RR_hipX"  gear="12" joint="RR_hipX"/>
-    <motor name="RR_knee"  gear="12" joint="RR_knee"/>
-    <motor name="RL_hipY"  gear="12" joint="RL_hipY"/>
-    <motor name="RL_hipX"  gear="12" joint="RL_hipX"/>
-    <motor name="RL_knee"  gear="12" joint="RL_knee"/>
+    <motor name="FR_hipY"  gear="20" joint="FR_hipY"/>
+    <motor name="FR_hipX"  gear="55" joint="FR_hipX"/>
+    <motor name="FR_knee"  gear="55" joint="FR_knee"/>
+    <motor name="FL_hipY"  gear="20" joint="FL_hipY"/>
+    <motor name="FL_hipX"  gear="55" joint="FL_hipX"/>
+    <motor name="FL_knee"  gear="55" joint="FL_knee"/>
+    <motor name="RR_hipY"  gear="20" joint="RR_hipY"/>
+    <motor name="RR_hipX"  gear="55" joint="RR_hipX"/>
+    <motor name="RR_knee"  gear="55" joint="RR_knee"/>
+    <motor name="RL_hipY"  gear="20" joint="RL_hipY"/>
+    <motor name="RL_hipX"  gear="55" joint="RL_hipX"/>
+    <motor name="RL_knee"  gear="55" joint="RL_knee"/>
   </actuator>
   <keyframe>
     <!-- Stable standing position, used when we initialize & reset the gym env -->

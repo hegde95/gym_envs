@@ -1,7 +1,11 @@
 <!-- Converted from the laikago files in pybullet -->
 <mujoco model="laikago">
   <compiler angle="radian" />
-  <size njmax="500" nconmax="100" />
+  <option timestep="0.004">
+    <!-- Disable if your dynamics computations are random states. Enable if your dynamics computations will form a full trajectory-->
+    <!-- <flag warmstart="disable"/> -->
+  </option>
+  <size nconmax="100" njmax="500" nkey="1"/>
   <default class="main">
     <geom conaffinity="0" contype="1"/>
     <motor ctrllimited="true" ctrlrange="-1 1"/>
@@ -89,7 +93,7 @@
     </body>
 
     <!-- Goal body -->
-    <body name="gtorso" pos="1 0 0.45" quat="0.5 0.5 0.5 0.5">
+    <body name="gtorso" pos="0.2 0 0.45" quat="0.5 0.5 0.5 0.5">
       <geom pos="0 0 0.043794" quat="0.707388 -0.706825 0 0" type="mesh" rgba="0 1 0 0.3" contype="0" mesh="torso"/>
       <body name="gFR_hip_motor" pos="-0.0817145 0 0.242889">
         <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="hipR"/>
@@ -142,9 +146,9 @@
     <motor name="RL_hipY"  gear="12" joint="RL_hipY"/>
     <motor name="RL_hipX"  gear="12" joint="RL_hipX"/>
     <motor name="RL_knee"  gear="12" joint="RL_knee"/>
-</actuator>
-<keyframe>
-  <!-- Stable standing position, used when we initialize & reset the gym env -->
-  <key qpos='0 0 0.44 0.5 0.5 0.5 0.5 0 0 -0.7 0 0 -0.7 0 0 -0.7 0 0 -0.7'/>
-</keyframe>
+  </actuator>
+  <keyframe>
+    <!-- Stable standing position, used when we initialize & reset the gym env -->
+    <key qpos='0 0 0.44 0.5 0.5 0.5 0.5 0 0 -0.7 0 0 -0.7 0 0 -0.7 0 0 -0.7'/>
+  </keyframe>
 </mujoco>

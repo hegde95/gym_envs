@@ -1,13 +1,14 @@
 <!-- Converted from the laikago files in pybullet -->
 <mujoco model="laikago">
   <compiler angle="radian" />
-  <option timestep="0.01">
+  <option timestep="0.002">
     <!-- Disable if your dynamics computations are random states. Enable if your dynamics computations will form a full trajectory-->
     <!-- <flag warmstart="disable"/> -->
   </option>
   <size nconmax="100" njmax="500" nkey="1"/>
   <default class="main">
     <geom conaffinity="0" contype="1"/> <!-- default friction, solref, solimp -->
+    <!-- <geom conaffinity="0" contype="1" friction="0.4 0.1 0.1" solimp="0 0.8 0.01 0.5 2"/> -->
     <motor ctrllimited="true" ctrlrange="-1 1"/>
   </default>
   <asset>
@@ -93,7 +94,7 @@
     </body>
 
     <!-- Goal body -->
-    <body name="gtorso" pos="0.2 0 0.45" quat="0.5 0.5 0.5 0.5">
+    <body name="gtorso" pos="1 0 0.45" quat="0.5 0.5 0.5 0.5">
       <geom pos="0 0 0.043794" quat="0.707388 -0.706825 0 0" type="mesh" rgba="0 1 0 0.3" contype="0" mesh="torso"/>
       <body name="gFR_hip_motor" pos="-0.0817145 0 0.242889">
         <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="hipR"/>

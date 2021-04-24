@@ -3,7 +3,7 @@ from gym.utils import EzPickle
 from gym.envs.mujoco.mujoco_env import MujocoEnv
 import os
 
-DEFAULT_CAMERA_CONFIG = {'distance': 4.0}
+DEFAULT_CAMERA_CONFIG = {'distance': 3.0, 'trackbodyid': 1, 'elevation': 0}
 
 class LaikagoEnv(MujocoEnv, EzPickle):
   def __init__(self,

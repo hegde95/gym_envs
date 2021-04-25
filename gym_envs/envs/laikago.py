@@ -28,6 +28,8 @@ class LaikagoEnv(MujocoEnv, EzPickle):
 
 
   def step(self, action):
+    if action.size == 6: # symmetric
+      action = np.hstack([action, action])
     # x_position_before = self.sim.data.qpos[0]
     self.do_simulation(action, self.frame_skip)
     # x_position_after = self.sim.data.qpos[0]

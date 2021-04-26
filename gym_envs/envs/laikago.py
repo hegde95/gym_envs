@@ -23,8 +23,8 @@ class LaikagoEnv(MujocoEnv, EzPickle):
     else:
       self._xml_path = xml_path
     MujocoEnv.__init__(self, self._xml_path, frame_skip=frame_skip)
-    self.init_qpos = self.sim.model.key_qpos.flatten()
-    self.init_qvel = self.sim.model.key_qvel.flatten()
+    self.init_qpos = self.sim.model.key_qpos[0]
+    self.init_qvel = self.sim.model.key_qvel[0]
 
 
   def step(self, action):

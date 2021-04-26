@@ -29,6 +29,7 @@
     <light directional="false" diffuse=".2 .2 .2" specular="0 0 0" pos="0 0 5" dir="0 0 -1" castshadow="false"/>
     <light mode="targetbodycom" target="torso" directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="0 0 4.0" dir="0 0 -1" castshadow="false"/>
     <body name="torso" pos="0 0 0.45" quat="0.5 0.5 0.5 0.5">
+      <camera mode="trackcom" name="track" pos="-3 0 0" quat="-0.707388 0 0.706825 0 "/>
       <freejoint name="root"/>
       <geom pos="0 0 0.043794" quat="0.707388 -0.706825 0 0" type="mesh" rgba="1 0.423529 0.0392157 1" mesh="torso"/>
       <body name="FL_hip" pos="0.0817145 0 0.242889">
@@ -94,7 +95,7 @@
     </body>
 
     <!-- Goal body -->
-    <body name="gtorso" pos="1 0 0.45" quat="0.5 0.5 0.5 0.5">
+    <body name="gtorso" pos="1.6 0 0.45" quat="0.5 0.5 0.5 0.5">
       <geom pos="0 0 0.043794" quat="0.707388 -0.706825 0 0" type="mesh" rgba="0 1 0 0.3" contype="0" mesh="torso"/>
       <body name="gFR_hip_motor" pos="-0.0817145 0 0.242889">
         <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="hipR"/>
@@ -132,6 +133,9 @@
           </body>
         </body>
       </body>
+    </body>
+    <body name="step0" pos=".8 0 -.5">
+      <geom conaffinity="1" pos="0 0 -0.5" rgba=".7 0 0 1" size=".2 1. 0.5" type="box"/>
     </body>
   </worldbody>
   <actuator>

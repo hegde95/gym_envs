@@ -95,7 +95,7 @@
     </body>
 
     <!-- Goal body -->
-    <body name="gtorso" pos="1.9 0 0.45" quat="0.5 0.5 0.5 0.5">
+    <body name="gtorso" pos="2.2 0 0.45" quat="0.5 0.5 0.5 0.5">
       <geom pos="0 0 0.043794" quat="0.707388 -0.706825 0 0" type="mesh" rgba="0 1 0 0.3" contype="0" mesh="torso"/>
       <body name="gFR_hip_motor" pos="-0.0817145 0 0.242889">
         <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="hipR"/>

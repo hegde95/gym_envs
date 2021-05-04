@@ -26,8 +26,9 @@
   </asset>
   <worldbody>
     <geom conaffinity="1" material="MatPlane" name="floor" rgba="0.8 0.8 0.8 1" size="40 40 40" type="plane"/>
-    <light directional="false" diffuse=".2 .2 .2" specular="0 0 0" pos="0 0 5" dir="0 0 -1" castshadow="false"/>
-    <light mode="targetbodycom" target="torso" directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="0 0 4.0" dir="0 0 -1" castshadow="false"/>
+    <!-- <light directional="false" diffuse=".2 .2 .2" specular="0 0 0" pos="0 0 5" dir="0 0 -1" castshadow="false"/> -->
+    <!-- <light mode="targetbodycom" target="torso" directional="false" diffuse=".8 .8 .8" specular="0.3 0.3 0.3" pos="0 0 4.0" dir="0 0 -1" castshadow="false"/> -->
+    <light cutoff="100" diffuse="1 1 1" dir="0 0 -1" directional="true" exponent="1" pos="0 0 1.3" specular="0.1 0.1 0.1" castshadow="false"/>
     <body name="torso" pos="0 0 0.45" quat="0.5 0.5 0.5 0.5">
       <camera mode="trackcom" name="track" pos="-3 0 0" quat="-0.707388 0 0.706825 0 "/>
       <freejoint name="root"/>
@@ -97,7 +98,7 @@
     <!-- Goal body -->
     <body name="gtorso" pos="2.2 0 0.45" quat="0.5 0.5 0.5 0.5">
       <geom pos="0 0 0.043794" quat="0.707388 -0.706825 0 0" type="mesh" rgba="0 1 0 0.3" contype="0" mesh="torso"/>
-      <body name="gFR_hip_motor" pos="-0.0817145 0 0.242889">
+      <!-- <body name="gFR_hip_motor" pos="-0.0817145 0 0.242889">
         <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="hipR"/>
         <body name="gFR_thigh" pos="-0.053565 0 0">
           <geom type="mesh" rgba="0 1 0 0.3" contype="0" mesh="thighR"/>
@@ -132,7 +133,7 @@
             <geom quat="0.707109 0 0.707105 0" type="mesh" rgba="0 1 0 0.3" contype="0" mesh="calf"/>
           </body>
         </body>
-      </body>
+      </body> -->
     </body>
     <body name="step0" pos=".8 0 -.5">
       <geom conaffinity="1" pos="0 0 -0.5" rgba=".7 0 0 1" size=".3 1. 0.5" type="box"/>

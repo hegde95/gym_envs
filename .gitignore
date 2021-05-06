@@ -1,5 +1,7 @@
 # pip package stuff
 *.egg-info/
 
+.DS_STORE
+
 # compiled files
 *.pyc

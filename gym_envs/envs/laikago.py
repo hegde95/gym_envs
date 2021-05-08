@@ -27,17 +27,21 @@ class LaikagoEnv(MujocoEnv, EzPickle):
     self.init_qvel = self.sim.model.key_qvel[0]
 
 
-  def step(self, action):
+  def step(self, action, output=True):
     if action.size == 6: # symmetric
       action = np.hstack([action, action])
     self.do_simulation(action, self.frame_skip)
-    # Remove for performance boost
-    # reward = 0
-    # observation = self._get_obs()
-    # done = False
-    # info = {
-    # }
-    return # observation, reward, done, info
+
+    if output:
+      # Remove for performance boost
+      reward = 0
+      observation = self._get_obs()
+      done = False
+      info = {
+      }
+      return observation, reward, done, info
+    else:
+      return
 
 
   def _get_obs(self):

@@ -30,19 +30,14 @@ class LaikagoEnv(MujocoEnv, EzPickle):
   def step(self, action):
     if action.size == 6: # symmetric
       action = np.hstack([action, action])
-    # x_position_before = self.sim.data.qpos[0]
     self.do_simulation(action, self.frame_skip)
-    # x_position_after = self.sim.data.qpos[0]
-    # x_velocity = ((x_position_after - x_position_before)
-    # / self.dt)
-    reward = 0
-    observation = self._get_obs()
-    done = False
-    info = {
-        # 'x_position': x_position_after,
-        # 'x_velocity': x_velocity,
-    }
-    return observation, reward, done, info
+    # Remove for performance boost
+    # reward = 0
+    # observation = self._get_obs()
+    # done = False
+    # info = {
+    # }
+    return # observation, reward, done, info
 
 
   def _get_obs(self):

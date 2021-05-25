@@ -47,3 +47,9 @@ register(
     entry_point='gym_envs.envs:LaikagoEnv',
     max_episode_steps=1000,
 )
+
+register(
+    id='laikago-v2',
+    entry_point='gym_envs.envs:LaikagoEnv_v2',
+    max_episode_steps=1000,
+)
